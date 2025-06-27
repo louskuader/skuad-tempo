@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
+  console.log("✅ Script rodando!");
+
   function updateHighlightedCard() {
     const cards = document.querySelectorAll(".cards-xp > div");
 
@@ -47,5 +49,5 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  updateHighlightedCard(); // roda ao carregar
+  updateHighlightedCard();
 });
