@@ -1,11 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
   console.log("✅ Script rodando!");
 
+  const scrollContainer = document.querySelector(".scroll-container");
+
   function updateHighlightedCard() {
     const cards = document.querySelectorAll(".cards-list > div");
+    const viewportCenter = window.innerWidth / 2;
+
     let closestCard = null;
     let closestDistance = Infinity;
-    const viewportCenter = window.innerWidth / 2;
 
     cards.forEach((card) => {
       const rect = card.getBoundingClientRect();
@@ -20,7 +23,6 @@ document.addEventListener("DOMContentLoaded", function () {
     cards.forEach((card) => {
       const isActive = card === closestCard;
 
-      // Elementos dentro do card
       const bg = card.querySelector(".card-bg-individual, .card-bg-residencial");
       const border = card.querySelector(".card-border-individual, .card-border-residencial");
       const list = card.querySelector(".card-list-individual, .card-list-residencial");
@@ -30,7 +32,6 @@ document.addEventListener("DOMContentLoaded", function () {
       if (list) list.classList.toggle("visible", isActive);
     });
 
-    // Botões externos
     const btnIndividual = document.querySelector(".btn-individual");
     const btnResidencial = document.querySelector(".btn-residencial");
 
@@ -43,12 +44,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  const holder = document.querySelector(".scroll-container");
-  if (holder) {
-    holder.addEventListener("scroll", () => {
+  if (scrollContainer) {
+    scrollContainer.addEventListener("scroll", () => {
       requestAnimationFrame(updateHighlightedCard);
     });
-  }
 
-  updateHighlightedCard();
+    updateHighlightedCard(); // executa ao carregar
+  }
 });
