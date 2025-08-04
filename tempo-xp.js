@@ -1,4 +1,3 @@
-<script>
 document.addEventListener("DOMContentLoaded", function () {
   // Executa só se for mobile
   if (!window.matchMedia("(max-width: 768px)").matches) {
@@ -66,4 +65,4 @@ document.addEventListener("DOMContentLoaded", function () {
     updateHighlightedCard();
   }
 });
-</script>
+
